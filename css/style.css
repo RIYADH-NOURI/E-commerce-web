@@ -83,10 +83,16 @@ main .products{
 .card a{
     display: inline-block;
     font-size: 15px;
-    padding-top: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #6759ff;
+    color: #6759ff !important;
+    transition: all 0.3s ease;
 }
 a:hover{
-    color: #6759ff !important;
+    color: white !important;
+    background: #6759ff;
 }
 .active{
     color: white;

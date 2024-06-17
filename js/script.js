@@ -1,92 +1,4 @@
 
-const products = {
-    data :[
-        {
-        id:1,
-        productName : 'addidas blue',
-        category : 'Topwear',
-        price : 45,
-        image : './images/adidas.png',
-    },
-    {
-        id:2,    
-        productName : 'beige jacket',
-        category : 'Jacket',
-        price : 30,
-        image : './images/beige-jacket.png'
-    },
-    {
-        id:3 ,
-        productName : 'blue shoes',
-        category : 'Topwear',
-        price : 25,
-        image : './images/blue-shoes.png',
-    },
-    {
-        id:4 ,
-        productName : 'blue t shirt',
-        category : 'Topwear',
-        price : 10,
-        image : './images/blue-t-shirt.png'
-    },
-    {
-        id:5 ,
-        productName : 'brown shoes',
-        category : 'Topwear',
-        price : 99,
-        image : './images/brown-shoes.png'
-    },
-    {
-        id:6 ,
-        productName : 'classic watch',
-        category : 'Watch',
-        price : 50,
-        image : './images/classic-watc.png'
-    },
-    {
-        id:7,
-        productName : 'green jacket',
-        category : 'Jacket',
-        price : 40,
-        image : './images/green-jacket.png'
-    },
-    {
-        id:8,
-        productName : 't shirt black',
-        category : 'Topwear',
-        price : 15,
-        image : './images/t-shirt_black.png'
-    },
-    {
-        id:9,
-        productName : 'white bottom',
-        category : 'Bottomwear',
-        price : 30,
-        image : './images/white-bottom.png'
-    },
-    {
-        id:10,
-        productName : 'smart watch',
-        category : 'Watch',
-        price : 25,
-        image : './images/white-watch.png'
-    },
-    {
-        id:11,
-        productName : 'black watch',
-        category : 'Watch',
-        price : 60,
-        image : './images/black-watch.png'
-    },
-    {
-        id:12,
-        productName : 'bottom cargo',
-        category : 'Bottomwear',
-        price : 25,
-        image : './images/bottom-cargo.png'
-    },
-]
-}
 // Iterates over the products.data array and creates a product card for each item
 // Appends the product card to the container with the class '.products'
 for (const i of products.data) {
@@ -107,6 +19,7 @@ for (const i of products.data) {
     const productLink = document.createElement('a');
     productLink.href = `./Product-details.html?id=${i.id}`;
     productLink.textContent = 'Show details';
+    productLink.style.textDecoration = 'none';
     productLink.style.color = 'inherit';
     
     container.appendChild(card);

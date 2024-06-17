@@ -2,15 +2,15 @@ const products = {
     data :[
         {
         id:1,
-        productName : 'addidas-blue',
+        productName : 'adidas black',
         category : 'Topwear',
         price : 45,
         description : 'Stylish and comfortable Adidas blue topwear, perfect for casual outings and sports activities. Features breathable fabric and the iconic Adidas logo',
-        image : './images/adidas.png',
+        image : './images/adidas-black.png',
     },
     {
         id:2,    
-        productName : 'beige-jacket',
+        productName : 'beige jacket',
         category : 'Jacket',
         price : 30,
         description : 'A versatile beige jacket that complements any outfit. Made with durable material, it s ideal for cooler weather and adds a touch of sophistication to your look',
@@ -18,7 +18,7 @@ const products = {
     },
     {
         id:3 ,
-        productName : 'blue-shoes',
+        productName : 'blue shoes',
         category : 'Topwear',
         price : 25,
         description : 'Trendy blue shoes that combine style and comfort. With a sleek design and cushioned soles, they re perfect for everyday wear or casual events',
@@ -26,7 +26,7 @@ const products = {
     },
     {
         id:4 ,
-        productName : 'blue-t-shirt',
+        productName : 'blue t shirt',
         category : 'Topwear',
         price : 10,
         description : 'A classic blue t-shirt, an essential for any wardrobe. Made from soft, breathable cotton, it offers both comfort and a timeless look',
@@ -34,7 +34,7 @@ const products = {
     },
     {
         id:5 ,
-        productName : 'brown-shoes',
+        productName : 'brown shoes',
         category : 'Topwear',
         price : 99,
         description : 'Elegant brown shoes crafted for style and durability. With a premium leather finish, they are suitable for both formal occasions and smart-casual settings',
@@ -42,7 +42,7 @@ const products = {
     },
     {
         id:6 ,
-        productName : 'classic-watch',
+        productName : 'classic watch',
         category : 'Watch',
         price : 50,
         description : 'A timeless classic watch that exudes sophistication. Features a clean dial, reliable quartz movement, and a comfortable strap, making it a perfect accessory for any outfit',
@@ -50,11 +50,11 @@ const products = {
     },
     {
         id:7,
-        productName : 'green-jacket',
+        productName : 'balck jacket',
         category : 'Jacket',
         price : 40,
         description : 'A stylish green jacket that stands out from the crowd. Made with weather-resistant material, it s both practical and fashionable for outdoor adventures',
-        image : './images/green-jacket.png',
+        image : './images/black-jacket.png',
     },
     {
         id:8,

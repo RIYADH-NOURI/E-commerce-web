@@ -63,7 +63,7 @@ main .products{
 }
 .card{
    max-width: 200px;
-    height:250px;
+    height:300px;
     text-align: center;
     box-shadow: 0 0 10px rgba(1,1,1,0.2);
     border-radius: 10px;
@@ -71,7 +71,7 @@ main .products{
     cursor: pointer;
 }
 .products .card:hover{
-    scale: 1.1;
+    scale: 1.04;
 }
 .products .card img{
     max-width: 100%;
@@ -81,7 +81,12 @@ main .products{
     margin-bottom: 10px;
 }
 .card a{
-    font-size: 12px;
+    display: inline-block;
+    font-size: 15px;
+    padding-top: 20px;
+}
+a:hover{
+    color: #6759ff !important;
 }
 .active{
     color: white;

@@ -20,15 +20,41 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button id="incrementBtn">+</button>
                 </div>
                 <a href="./index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i></a>
+                <button id="addToCartBtn">Add panier</button>
             </div>
         `;
 
         setupZoom();
         setupQuantityControl(product.price);
-    } else {
-        document.body.innerHTML = '<h1>product not existe !</h1>';
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        addToCartBtn.addEventListener('click', () => {
+          const quantity = parseInt(document.getElementById('quantityValue').textContent);
+          addToCart(product, quantity);
+        });
     }
 });
+function addToCart(product, quantity) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    const existingProductIndex = cart.findIndex(item => item.id === product.id);
+    
+    if (existingProductIndex !== -1) {
+      cart[existingProductIndex].quantity += quantity;
+    } else {
+      cart.push({
+        id: product.id,
+        name: product.productName,
+        price: product.price,
+        image: product.image,
+        quantity: quantity,
+      });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert('Product added to cart!');
+  }
+
+
 function setupQuantityControl(basePrice) {
     const quantityValue = document.getElementById('quantityValue');
     const decrementBtn = document.getElementById('decrementBtn');
@@ -37,6 +63,7 @@ function setupQuantityControl(basePrice) {
 
     let quantity = 1;
     let currentPrice = basePrice;
+    
 
     decrementBtn.addEventListener('click', () => {
         if (quantity > 1) {
@@ -64,9 +91,9 @@ function setupZoom() {
         const x = (e.clientX - left) / width;
         const y = (e.clientY - top) / height;
 
-        const zoom = 1.1;
-        const xOffset = (0.5 - x) * 20;
-        const yOffset = (0.5 - y) * 20;
+        const zoom = 1.3;
+        const xOffset = (0.5 - x) * 100;
+        const yOffset = (0.5 - y) * 100;
 
         img.style.transform = `scale(${zoom}) translate(${xOffset}px, ${yOffset}px)`;
     });

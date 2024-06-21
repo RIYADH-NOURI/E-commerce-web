@@ -1,4 +1,6 @@
 
+
+
 // Iterates over the products.data array and creates a product card for each item
 // Appends the product card to the container with the class '.products'
 for (const i of products.data) {
@@ -19,6 +21,7 @@ for (const i of products.data) {
     const productLink = document.createElement('a');
     productLink.href = `./Product-details.html?id=${i.id}`;
     productLink.textContent = 'Show details';
+    productLink.target= '_blank';
     productLink.style.textDecoration = 'none';
     productLink.style.color = 'inherit';
     
@@ -88,3 +91,83 @@ function filterProduct(value){
 window.onload = ()=>{
     filterProduct('All');
 }
+
+function displayCart() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartContainer = document.querySelector('.panier');
+  
+  if (cart.length === 0) {
+    cartContainer.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+    return;
+  }
+  
+  let cartHTML = `
+    <h2 class="cart-title">Your Cart</h2>
+    <ul class="cart-items">
+  `;
+  
+  let total = 0;
+  
+  cart.forEach(item => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+    cartHTML += `
+      <li class="cart-item">
+        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+        <div class="cart-item-details">
+          <h3 class="cart-item-name">${item.name}</h3>
+          <p class="cart-item-price">$${item.price.toFixed(2)} x ${item.quantity}</p>
+        </div>
+        <div class="cart-item-actions">
+          <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+          <span class="item-quantity">${item.quantity}</span>
+          <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+          <button class="remove-btn" onclick="removeFromCart(${item.id})">×</button>
+        </div>
+      </li>
+    `;
+  });
+  
+  cartHTML += `
+    </ul>
+    <div class="cart-total">
+      <span>Total:</span>
+      <strong>$${total.toFixed(2)}</strong>
+    </div>
+            <button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
+
+  `;
+  
+  cartContainer.innerHTML = cartHTML;
+}
+function goToCheckout() {
+  window.location.href = './checkout.html';
+}
+
+function updateQuantity(productId, newQuantity) {
+  if (newQuantity < 1) return;
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const itemIndex = cart.findIndex(item => item.id === productId);
+  if (itemIndex !== -1) {
+    cart[itemIndex].quantity = newQuantity;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+  }
+}
+
+function removeFromCart(productId) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart = cart.filter(item => item.id !== productId);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  displayCart();
+}
+const icon = document.querySelector('i');
+const panier = document.querySelector('.panier');
+// قم بإضافة مستمع حدث لأيقونة السلة لعرض محتوياتها
+icon.addEventListener('click', () => {
+  panier.classList.toggle('active-panier');
+  displayCart();
+});
+
+// قم باستدعاء displayCart عند تحميل الصفحة
+window.addEventListener('load', displayCart);

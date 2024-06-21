@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="./css/chekout-page.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        <form id="checkout-form" action="https://formspree.io/f/mldrrgrv" method="POST">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+           
+            <div class="form-group">
+                <label for="address">Shipping Address</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="tel">your phone</label>
+                <input type="text" id="tel" name="tel" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="zipCode">Zip Code</label>
+                <input type="text" id="zipCode" name="zipCode" required>
+            </div>
+            <input type="hidden" id="orderDetails" name="orderDetails">
+            <div id="order-summary"></div>
+            <button type="submit" class="submit-btn">Place Order</button>
+        </form>
+    </div>
+    <script src="./js/chekout-page.js"></script>
+</body>
+</html>

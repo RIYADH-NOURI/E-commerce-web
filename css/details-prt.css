@@ -12,6 +12,7 @@
     min-height: 100vh;
 }
 .product-container {
+    position: relative;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -93,6 +94,24 @@ p{
 .quantity-control span {
     font-size: 18px;
     padding: 0 12px;
+}
+#addToCartBtn{
+    position: absolute;
+    bottom: 50px;
+    right: 50%;
+    width: 100px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: white;
+    background:rgb(0, 153, 255);
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 500;
+}
+#add-panier:hover{
+    background:blue;
 }
 
 @media (max-width: 768px) {

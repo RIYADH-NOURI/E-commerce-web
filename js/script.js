@@ -163,11 +163,9 @@ function removeFromCart(productId) {
 }
 const icon = document.querySelector('i');
 const panier = document.querySelector('.panier');
-// قم بإضافة مستمع حدث لأيقونة السلة لعرض محتوياتها
 icon.addEventListener('click', () => {
   panier.classList.toggle('active-panier');
   displayCart();
 });
 
-// قم باستدعاء displayCart عند تحميل الصفحة
 window.addEventListener('load', displayCart);

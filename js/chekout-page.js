@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         e.preventDefault();
 
         try {
-            // إرسال النموذج باستخدام Fetch API
             const response = await fetch(checkoutForm.action, {
                 method: 'POST',
                 body: new FormData(checkoutForm),
